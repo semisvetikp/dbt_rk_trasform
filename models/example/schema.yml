@@ -1,0 +1,32 @@
+
+version: 2
+
+models:
+  - name: psa_client_bk_rk
+    description: "A starter dbt model"
+    columns:
+      - name: client_rk
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: psa_client_rk
+    description: "A starter dbt model"
+    columns:
+      - name: client_rk
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+sources:
+  - name: dwh_sbx
+    tables:
+    - name: psa_test
+    - name: psa_client_bk
+    - name: psa_client_rk
+    - name: psa_client_bk_rk
+    - name: etl_bk
+    - name: etl_bk_type
+    - name: psa_order_bk
